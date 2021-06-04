@@ -9,26 +9,34 @@
 <body bgcolor="green" align="center">
     
     <h2>Olasılık ve İstatistik Hesaplamaları</h2>
-
-    <input type="text" class="sayilar" placeholder="Lütfen sayıları giriniz.">
-    <br><br>
     
-    <button class="aritmetikOrt">aritmetikOrt</button>
-    <button class="geometrikOrt">geometrikOrt</button>
-    <button class="harmonikOrt">harmonikOrt</button>
+    <label for="sayilar">Verilerinizi giriniz:</label>
+    <input type="text"  class="sayilar" placeholder="Ör: 1 -2 30">
+    
+    
+    <br><br>
+    <b><p>Veri girildikten sonra elde etmek istediğiniz sonuç için ilgili butona tıklayın</p></b>
+    <button class="aritmetikOrt">aritmetikOrtalama</button>
+    <button class="geometrikOrt">geometrikOrtalama</button>
+    <button class="harmonikOrt">harmonikOrtalama</button>
     <button class="mod">mod</button>
     <button class="medyan">medyan</button>
     <button class="standartSapma">standartSapma</button>
+    <button class="varyans">varyans</button>
     <b>   
-        <p> <u>Not:</u> Yazılımın düzgün Çalışması için metin kutusu kısmına 1 5 3 ... 1 gibi arasında boşluklu veri girilmelidir.<br> Excel tablolarından direkt kopyala yapıştır ile veriler girilebilir.</p>
+        <p> <u>Not:</u> Yazılımın düzgün Çalışması için metin kutusu kısmına 1 5 3 ... 1 gibi arasında boşluklu veri girilmelidir.<br><u>Hatırlatma:</u> Excel tablolarından direkt kopyala yapıştır ile veriler girilebilir.</p>
     <b>
     <br> <br><hr>
 
-    <b>   
-        <p> <u>Not:</u> Permutasyon veya Kombinasyon butona tıkladığınızda işleminizi gerçekleştirebilirsiniz. </p>
-    <b>
+    <h2>Permütasyon Kombinasyon</h2>
+    
+    
     <button class="permutasyon" onclick="permutasyon()">permutasyon</button>
     <button class="kombinasyon" onclick="kombinasyon()">kombinasyon</button>
+    
+    <b>   
+        <p> <u>Not:</u> Permutasyon veya Kombinasyon butona tıkladığınızda istenilen veriler sağlandığında tıklanığınız işlem gerçekleşir. </p>
+    <b>
     
     
     
