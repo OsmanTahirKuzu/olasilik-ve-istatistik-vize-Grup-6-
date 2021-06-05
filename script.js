@@ -1,5 +1,3 @@
-
-    
     var aritmetikOrt= document.querySelector('.aritmetikOrt');
     var geometrikOrt= document.querySelector('.geometrikOrt');
     var harmonikOrt= document.querySelector('.harmonikOrt');
@@ -7,8 +5,55 @@
     var medyans= document.querySelector('.medyan');
     var standartSapmas= document.querySelector('.standartSapma');
     var varyanss = document.querySelector('.varyans');
+    var acikliks = document.querySelector('.aciklik');
+    var standartSapmak= document.querySelector('.standartSapma1');
+    var varyansk = document.querySelector('.varyans1');
 
     var dizi= document.querySelector('.sayilar');
+
+
+    aritmetikOrt.addEventListener('click',function(){
+        alert(aritmetikOrtalama(dizi.value));    
+    })
+
+    geometrikOrt.addEventListener('click',function(){
+         alert(geometrikOrtalama(dizi.value)); 
+     })
+
+     harmonikOrt.addEventListener('click',function(){
+         alert(harmonikOrtalama(dizi.value));     
+     })
+
+     mods.addEventListener('click',function(){
+         alert(mod(dizi.value));
+ 
+     })
+     
+     medyans.addEventListener('click',function(){
+         alert(medyan(dizi.value)); 
+     })
+    
+     standartSapmas.addEventListener('click',function(){
+         alert(standartSapma(dizi.value)); 
+     })
+     standartSapmak.addEventListener('click',function(){
+        alert(standartSapma1(dizi.value)); 
+    })
+
+     varyanss.addEventListener('click',function(){
+        alert(varyans(dizi.value)); 
+    })
+    varyansk.addEventListener('click',function(){
+        alert(varyans1(dizi.value)); 
+    })
+    
+    acikliks.addEventListener('click',function(){
+        alert(aciklik(dizi.value));
+    })
+
+
+
+
 //Aritmetik Ortalama hesaplama fonksiyonu
     function aritmetikOrtalama(item) {
         var ayrac= item.split(" ");
@@ -104,25 +149,23 @@
                 maxIndex=count[number];
             }
         }
+        if(maxIndex == 1)
+        {
+            alert("Tekrar eden sayı olmadığı için mod yoktur!")
+            return;
+        }
         for(j in count){
             if(count.hasOwnProperty(j)){
-                if(count[j]==maxIndex){
+                if(count[j]==maxIndex ){
+                    
                     modes.push(Number(j));
                 }
                 
+                
             }
         }
-    // //deneme kısmı (extra)
-    //         var temp = maxIndex;
-    //         for(var i=0;i<modes.length;i++)
-    //         {
-    //             for(var j=0;j<modes.length;j++)
-    //             {
-    //                 if(count[i] == modes[j] )
-    //                 modes.pop[j];
-    //             }
-    //}
-
+    
+        
         return modes;   
     }
 //medyan hesaplama fonksiyonu
@@ -151,7 +194,7 @@
       
         return medyandeger;  
      }
-     //Standart Sapma hesaplama fonksiyonu
+//Sample Standart Sapma hesaplama fonksiyonu
      function standartSapma(item) {
         if (!item) {
             alert("Lütfen veri girişi yapınız.");
@@ -173,14 +216,36 @@
         return Math.sqrt(toplam/(ayrac.length-1));
          
      }
-     //varyans hesaplama fonksiyonu
+     //Popülasyon Standart Sapma hesaplama fonksiyonu
+     function standartSapma1(item) {
+        if (!item) {
+            alert("Lütfen veri girişi yapınız.");
+            return;
+        }
+        var ayrac= item.split(" ");
+        var ortalama = aritmetikOrtalama(item);
+        
+        var i;
+        var toplam = 0;
+        var sayidizi = [];
+
+        
+        
+        for(i=0;i<ayrac.length;i++){
+            sayidizi[i]=parseInt(ayrac[i]);
+            toplam += (sayidizi[i] - ortalama)*(sayidizi[i] - ortalama);
+        }
+        return Math.sqrt(toplam/(ayrac.length));
+         
+     }
+     //sample varyans hesaplama fonksiyonu 
      function varyans(item)
      {
         if (!item) {
             alert("Lütfen veri girişi yapınız.");
             return;
         }
-        
+
         var ayrac= item.split(" ");
         var ortalama = aritmetikOrtalama(item);
         
@@ -194,7 +259,28 @@
         }
         return toplam/(ayrac.length-1);
      }
+    //popülasyon varyansı hesaplama
+     function varyans1(item)
+     {
+        if (!item) {
+            alert("Lütfen veri girişi yapınız.");
+            return;
+        }
 
+        var ayrac= item.split(" ");
+        var ortalama = aritmetikOrtalama(item);
+        
+        var i;
+        var toplam = 0;
+        var sayidizi = [];
+        
+        for(i=0;i<ayrac.length;i++){
+            sayidizi[i]=parseInt(ayrac[i]);
+            toplam += (sayidizi[i] - ortalama)*(sayidizi[i] - ortalama);
+        }
+        return toplam/(ayrac.length);
+     }
+     //ara işlem için faktöriyel hesaplama fonksiyonu
      function factoriyel(n)
      {
         var i;
@@ -212,55 +298,27 @@
         }
         
      }
-     //////////////////////////////
-    aritmetikOrt.addEventListener('click',function(){
-    
-        alert(aritmetikOrtalama(dizi.value));
-         
-    })
-    geometrikOrt.addEventListener('click',function(){
-    
+//Ranj hesaplama fonksiyonu
+     function aciklik(item)
+     {
+        var ayrac= item.split(" ");
+        var i = 0;
         
-         alert(geometrikOrtalama(dizi.value));
-          
-     })
+        if (!item) {
+            alert("Lütfen veri girişi yapınız.");
+            return;
+        }        
+        ayrac.forEach(item => {
+            cevir = parseInt(item)
+            ayrac[i] = cevir;
+            i++;  
+            
+        });
 
-     harmonikOrt.addEventListener('click',function(){
-    
-         
-         alert(harmonikOrtalama(dizi.value));
-          
-     })
-
-     mods.addEventListener('click',function(){
-    
-         
-         alert(mod(dizi.value));
-          
-     })
-     
-     medyans.addEventListener('click',function(){
-    
-         
-         alert(medyan(dizi.value));
-          
-     })
-    
-     standartSapmas.addEventListener('click',function(){
-    
-         alert(standartSapma(dizi.value));
-          
-     })
-     varyanss.addEventListener('click',function(){
-    
-        alert(varyans(dizi.value));
-         
-    })
-
-     
-
-     
-
+        var siraliDizi = ayrac.sort(function(a, b){return a - b});
+        return siraliDizi[ayrac.length-1] - siraliDizi[0];
+     }
+ //permütasyon hesaplama fonksiyonu
      function permutasyon() {
         var n = Number(window.prompt("Eleman Sayısı (n):",0));
         var r = Number(window.prompt("Seçim Sayısı (r) :",0));
@@ -278,8 +336,7 @@
             return permutasyon();
         }
      } 
-     
-     
+//Kombinasyon hesaplama fonksiyonu
      function kombinasyon() {
         var n = Number(window.prompt("Eleman Sayısı (n):",0));
         var r = Number(window.prompt("Seçim Sayısı (r) :",0));
